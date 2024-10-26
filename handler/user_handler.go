@@ -50,7 +50,7 @@ func (h *UserHandler) CreateUser(c echo.Context) error {
     }
 
     if len(user.Password) < 10 {
-        return c.JSON(http.StatusBadRequest, map[string]string{"error": "Пароль должен содержать минимум 9 символов"})
+        return c.JSON(http.StatusBadRequest, map[string]string{"error": "Пароль должен содержать минимум 10 символов"})
     }
 
     hashedPassword, err := hashPassword(user.Password)
@@ -99,7 +99,7 @@ func (h *UserHandler) UpdateUser(c echo.Context) error {
     }
 
     if user.Password != "" && len(user.Password) < 10 {
-        return c.JSON(http.StatusBadRequest, map[string]string{"error": "Пароль должен содержать минимум 9 символов"})
+        return c.JSON(http.StatusBadRequest, map[string]string{"error": "Пароль должен содержать минимум 10 символов"})
     }
 
     if user.Password != "" {

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  my-go-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+
+  postgres-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: api_user            # Замените на ваше имя пользователя
+      POSTGRES_PASSWORD: api_password      # Замените на ваш пароль
+      POSTGRES_DB: api_database            # Замените на ваше имя базы данных
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

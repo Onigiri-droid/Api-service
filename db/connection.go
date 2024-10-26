@@ -11,7 +11,7 @@ import (
 
 func InitDB() *bun.DB {
     // Строка подключения к базе данных
-    dsn := "postgres://postgres:9028753427@localhost:5432/my-users?sslmode=disable"
+    dsn := "postgres://api_user:api_password@postgres-db:5432/api_database?sslmode=disable"
     
     // Инициализация драйвера для PostgreSQL
     sqldb := sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(dsn)))

@@ -46,9 +46,9 @@ func (h *UserHandler) Register(c echo.Context) error {
         return c.JSON(http.StatusBadRequest, map[string]string{"error": "Некорректный email"})
     }
 
-    // Валидация пароля (например, минимум 9 символов)
+    // Валидация пароля (например, минимум 10 символов)
     if len(user.Password) < 10 {
-        return c.JSON(http.StatusBadRequest, map[string]string{"error": "Пароль должен содержать минимум 9 символов"})
+        return c.JSON(http.StatusBadRequest, map[string]string{"error": "Пароль должен содержать минимум 10 символов"})
     }
 
     // Хэшируем пароль перед сохранением
