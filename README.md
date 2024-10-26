@@ -6,7 +6,13 @@ Go, PostgreSQL, Echo, bun, golang-jwt
 Описание проекта:
 Api-сервис предоставляет возможность зарегистрировать и авторизовать пользователя с использованием jwt-токена, токен дает возможность запрашивать список пользователей, а так же создавать новых, обновлять и удалять. Данные хранятся в PostgreSQL.
 
-Для подключения к бд перейдите по пути db\connection.go и настройте переменную dsn := "postgres://(Maintenance database):(password)@(host name):(port)/(database)?sslmode=disable"
+Для подключения к бд перейдите по пути db\connection.go и настройте переменную dsn := "postgres://username:password@postgres-db:5432/dbname?sslmode=disable"
+
+Значения:
+username: имя пользователя базы данных,
+password: пароль пользователя базы данных,
+postgres-db: имя контейнера с базой данных (указано в docker-compose.yml),
+dbname: имя базы данных, к которой вы хотите подключиться.
 
 Руководство к API с использованием Postman:
 
